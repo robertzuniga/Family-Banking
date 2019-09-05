@@ -6,72 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="presentValue.js"></script>
 </head>
 
 <body>
 
-    let annually = 1;
+<div>    
+    <!-- let annually = 1;
     let semiannual = 2;
     let quarterly = 4;
     let monthly = 12;
-    let daily = 365;
+    let daily = 365; -->
 
     
-    <script>
-        let presentValue = 1000;
-        let rate = 0.05;
-        let periods = 12;
-        let years = 10;
+    
+    <!-- futureValue(presentValue,rate,periods,years) -->
 
-        console.log("presentValue ==>", presentValue);
+    console.log("futureValue 1 ==>", futureValue);
+    for (let i = 1; i <= years; i++) {
 
-        let futureValue = presentValue * Math.pow((1 + rate / periods), (periods * years));
+        let fv = 0;
+        fv = presentValue * Math.pow((1 + rate / periods), (periods * i));
+        console.log("year ==> " + i + " fv ==> " + fv);
+    }
 
-        // console.log("futureValue ==>", futureValue);
+    console.log("futureValue 2 ==>", futureValue);
 
-        for (let i = 1; i <= years; i++) {
 
-            let fv = 0;
-            fv = presentValue * Math.pow((1 + rate / periods), (periods * i));
-            console.log("year ==> " + i + " fv ==> " + fv);
-        }
+    for (let i = 1; i <= years; i++) {
 
-        console.log("futureValue ==>", futureValue);
-
+        let pv = 0;
         let numerator = futureValue;
-        let denominator = Math.pow((1 + rate / periods), (periods * years));
-        presentValue = numerator / denominator;
+        let denominator = Math.pow((1 + rate / periods), (periods * i));
+        pv = numerator / denominator;
 
-        for (let i = 1; i <= years; i++) {
+        console.log("year ==> " + i + " pv ==> " + pv);
 
-            let pv = 0;
-            let numerator = futureValue;
-            let denominator = Math.pow((1 + rate / periods), (periods * i));
-            pv = numerator / denominator;
+    }
 
-            console.log("year ==> " + i + " pv ==> " + pv);
+    presentValue(futureValue,rate,periods,years);
 
-        }
-
-        console.log("presentValue ==>", presentValue);
-
-
-
-
-
-        //
-
-
-
-    </script>
-
-
-
-
-
-
-
-
+    <!-- console.log("futureValue ==>", futureValue); -->
+    console.log("presentValue ==>", presentValue);
+</div>
 </body>
 
 </html>
