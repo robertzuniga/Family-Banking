@@ -20,33 +20,33 @@
     <script>
         let presentValue = 1000;
         let rate = 0.05;
-        let numberOfPeriods = 12;
-        let Years = 10;
+        let periods = 12;
+        let years = 10;
 
         console.log("presentValue ==>", presentValue);
 
-        let futureValue = presentValue * Math.pow((1 + rate / numberOfPeriods), (numberOfPeriods * Years));
+        let futureValue = presentValue * Math.pow((1 + rate / periods), (periods * years));
 
         // console.log("futureValue ==>", futureValue);
 
-        for (let i = 1; i <= Years; i++) {
+        for (let i = 1; i <= years; i++) {
 
             let fv = 0;
-            fv = presentValue * Math.pow((1 + rate / numberOfPeriods), (numberOfPeriods * i));
+            fv = presentValue * Math.pow((1 + rate / periods), (periods * i));
             console.log("year ==> " + i + " fv ==> " + fv);
         }
 
         console.log("futureValue ==>", futureValue);
 
         let numerator = futureValue;
-        let denominator = Math.pow((1 + rate / numberOfPeriods), (numberOfPeriods * Years));
+        let denominator = Math.pow((1 + rate / periods), (periods * years));
         presentValue = numerator / denominator;
 
-        for (let i = 1; i <= Years; i++) {
+        for (let i = 1; i <= years; i++) {
 
             let pv = 0;
             let numerator = futureValue;
-            let denominator = Math.pow((1 + rate / numberOfPeriods), (numberOfPeriods * i));
+            let denominator = Math.pow((1 + rate / periods), (periods * i));
             pv = numerator / denominator;
 
             console.log("year ==> " + i + " pv ==> " + pv);
