@@ -1,3 +1,4 @@
+// Robert Zuniga
 import React, { Component } from 'react';
 import Jumbotron from "../../components/Jumbotron"
 import { Col, Row, Container } from "../../components/Grid";
@@ -7,7 +8,7 @@ import { Input, TextArea, FormBtn } from "../../components/Form";
 import API from '../../lib/API';
 import AuthContext from '../../contexts/AuthContext';
 
-class Secret extends Component {
+class Calculators extends Component {
   static contextType = AuthContext;
 
   state = {
@@ -28,7 +29,6 @@ class Secret extends Component {
       })
       .finally(() => this.setState({ isLoading: false }));
   }
-
 
     fvstate = {
     presentValue: [],
@@ -53,7 +53,7 @@ class Secret extends Component {
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>Enter Inputs Here!</h1>
+              <h1>Calculators ==> Enter Inputs Here!</h1>
             </Jumbotron>
             { <form>
               <Input
@@ -134,4 +134,4 @@ class Secret extends Component {
   }
 }
 
-export default Secret;
+export default Calculators;
