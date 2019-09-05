@@ -21,7 +21,7 @@ controller.post('/', (req,res) => {
   });
 
 })
-
+ 
 controller.get('/', (req,res) => {
 
   base('Financial Calculator').find('recvzk8qUIcZEXrHG', function(err, record) {
