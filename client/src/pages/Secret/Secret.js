@@ -69,82 +69,78 @@ class Secret extends Component {
                                 <h1>Enter Inputs Here!</h1>
                               </Jumbotron>
                               <form onSubmit={this.handleSubmit}>
-              
-
-              <div className='input-group mb-3'>
-                <div className="input-group-prepend">
-                  <span className="input-group-text"><Octicon icon={Key} /></span>
-                </div>
-                <input
-                  className='form-control'
-                  id='presentValue'
-                  type='number'
-                  name='presentValue'
-                  placeholder='10000'
-                  value={this.presentValue}
-                  onChange={this.handleInputChange}
-                />
-              </div>
+                                <div className='input-group mb-3'>
+                                <div className="input-group-prepend">
+                                  <span className="input-group-text"><Octicon icon={Key} /></span>
+                                 </div>
+                                  <input
+                                      className='form-control'
+                                      id='presentValue'
+                                      type='number'
+                                      name='presentValue'
+                                      placeholder='10000'
+                                      value={this.presentValue}
+                                      onChange={this.handleInputChange}
+                                />
+                              </div>
 
 
-              <div className='input-group mb-3'>
-                <div className="input-group-prepend">
-                  <span className="input-group-text"><Octicon icon={Key} /></span>
-                </div>
-                <input
-                  className='form-control'
-                  id='rate'
-                  type='number' step="any"
-                  name='rate'
-                  placeholder='0.05 (for 5%)'
-                  value={this.rate}
-                  onChange={this.handleInputChange}
-                />
-              </div>
+                              <div className='input-group mb-3'>
+                                <div className="input-group-prepend">
+                                  <span className="input-group-text"><Octicon icon={Key} /></span>
+                                </div>
+                                <input
+                                  className='form-control'
+                                  id='rate'
+                                  type='number' step="any"
+                                  name='rate'
+                                  placeholder='5 (for 5%)'
+                                  value={this.rate}
+                                  onChange={this.handleInputChange}
+                                />
+                              </div>
 
-              <div className='input-group mb-3'>
-                <div className="input-group-prepend">
-                  <span className="input-group-text"><Octicon icon={Key} /></span>
-                </div>
-                <input
-                  className='form-control'
-                  id='periods'
-                  type='number'
-                  name='periods'
-                  placeholder='12 (for 12 months)'
-                  value={this.periods}
-                  onChange={this.handleInputChange}
-                />
-              </div>
+                              <div className='input-group mb-3'>
+                                <div className="input-group-prepend">
+                                  <span className="input-group-text"><Octicon icon={Key} /></span>
+                                </div>
+                                <input
+                                  className='form-control'
+                                  id='periods'
+                                  type='number'
+                                  name='periods'
+                                  placeholder='12 (for 12 months)'
+                                  value={this.periods}
+                                  onChange={this.handleInputChange}
+                                />
+                              </div>
 
-              <div className='input-group mb-3'>
-                <div className="input-group-prepend">
-                  <span className="input-group-text"><Octicon icon={Key} /></span>
-                </div>
-                <input
-                  className='form-control'
-                  id='years'
-                  type='number'
-                  name='years'
-                  placeholder='10 (for 10 years)'
-                  value={this.years}
-                  onChange={this.handleInputChange}
-                />
-              </div>
+                              <div className='input-group mb-3'>
+                                <div className="input-group-prepend">
+                                  <span className="input-group-text"><Octicon icon={Key} /></span>
+                                </div>
+                                <input
+                                  className='form-control'
+                                  id='years'
+                                  type='number'
+                                  name='years'
+                                  placeholder='10 (for 10 years)'
+                                  value={this.years}
+                                  onChange={this.handleInputChange}
+                                />
+                              </div>
 
-
-              <button className='btn btn-primary' type='submit'>Register Now!</button>
+                               <button className='btn btn-primary' type='submit'>Register Now!</button>
            
-            </form>
-    
-                            </Col>
-                            <Col size="md-6 sm-12">
-                              <Jumbotron>
-                                <h1>Future Value Calculation</h1>
-                              </Jumbotron>
-                              place for table and chart
-                            </Col>
-                          </Row>
+                               </form>
+                               </Col>
+                                  <Col size="md-6 sm-12">
+                                  <Jumbotron>
+                                      <h1>Future Value Calculation</h1>
+                                    </Jumbotron>
+                                            place for table and chart
+                                </Col>
+            </Row>
                   </Container>
 
                   <p>It's never a question about how much something cost...</p>

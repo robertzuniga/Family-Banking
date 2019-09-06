@@ -8,14 +8,14 @@ controller.post('/', (req,res) => {
     //req.body contains present value / rate / periods / years
 
   base('Financial Calculator').create({
-    "User ID": 1,
-    "Present Value": 60000,
-    "Rate": 0.1,
-    "Periods": 4,
-    "Years": 5
+    "User ID": 2,
+    "Present Value": 30000,
+    "Rate": 1,
+    "Periods": 12,
+    "Years": 10
   }, function(err, record) {
     if (err) {
-      console.error(err);
+      console.error("controller.post ==>",err);
       return;
     }
     console.log(record.getId());
@@ -27,7 +27,7 @@ controller.post('/', (req,res) => {
 controller.get('/', (req,res) => {
 
   base('Financial Calculator').find('recvzk8qUIcZEXrHG', function(err, record) {
-    if (err) { console.error(err); return; }
+    if (err) { console.error("myRetrieve ==> ",err); return; }
     console.log('Retrieved', record.id);
   });
 
@@ -50,13 +50,13 @@ controller.get('/', (req,res) => {
 // });
 
 // my Delete Record
-base('Financial Calculator').destroy('recvzk8qUIcZEXrHG', function(err, deletedRecord) {
-  if (err) {
-    console.error(err);
-    return;
-  }
-  console.log('Deleted record', deletedRecord.id);
-});
+// base('Financial Calculator').destroy('recvzk8qUIcZEXrHG', function(err, deletedRecord) {
+//   if (err) {
+//     console.error(err);
+//     return;
+//   }
+//   console.log('Deleted record', deletedRecord.id);
+// });
 
 
 
