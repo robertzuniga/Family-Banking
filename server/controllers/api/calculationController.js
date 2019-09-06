@@ -24,14 +24,14 @@ var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appfX5sQa53WlK
 // })
  
 // myRetrieve a Financial Calculator record
-controller.get('/', (req,res) => {
+// controller.get('/', (req,res) => {
 
-  base('Financial Calculator').find('recvzk8qUIcZEXrHG', function(err, record) {
-    if (err) { console.error(err); return; }
-    console.log('Retrieved', record.id);
-  });
+//   base('Financial Calculator').find('recvzk8qUIcZEXrHG', function(err, record) {
+//     if (err) { console.error(err); return; }
+//     console.log('Retrieved', record.id);
+//   });
 
-})
+// })
 
 //my Update Financial Calculator records
 

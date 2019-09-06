@@ -119,6 +119,7 @@ class Calculators extends Component {
         </Row>
 </Container>
 
+
                   <p>It's never a question about how much something cost...</p>
                   {/* <p><em>{this.state.secrets[0].message}</em></p> */}
                   <p>the real question to be answered is</p> 
