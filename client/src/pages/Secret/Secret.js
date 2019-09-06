@@ -37,7 +37,6 @@ class Secret extends Component {
     years: ""
   };
 
-
   render() {
     return (
       <div className='Secret'>
