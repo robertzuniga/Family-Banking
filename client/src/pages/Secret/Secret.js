@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Jumbotron from "../../components/Jumbotron"
 import { Col, Row, Container } from "../../components/Grid";
-import { Input, TextArea, FormBtn } from "../../components/Form";
+// import { Input, TextArea, FormBtn } from "../../components/Form";
 //import { Redirect } from 'react-router-dom';
-
+import Octicon, {Key } from '@githubprimer/octicons-react';
 import API from '../../lib/API';
 import AuthContext from '../../contexts/AuthContext';
 
@@ -11,10 +11,30 @@ class Secret extends Component {
   static contextType = AuthContext;
 
   state = {
+    userID: '',
     isLoading: true,
-    error: ""
+    error: '',
+    presentValue: '',
+    rate: '',
+    periods: '',
+    years: ''
   }
+  handleInputChange = event => {
+    const { name, value } = event.target;
 
+    this.setState({
+      [name]: value
+    });
+  }
+  handleSubmit = event => {
+    const { presentValue, rate, periods, years } = this.state;
+
+    this.props.onSubmit(presentValue, rate, periods, years);
+
+    //run a post to /api/calculations with an object of the above values
+
+    event.preventDefault();
+  }
   componentDidMount() {
     API.Secrets.getAll(this.context.authToken)
       .then(response => response.data)
@@ -30,15 +50,8 @@ class Secret extends Component {
   }
 
 
-    fvstate = {
-    presentValue: [],
-    rate: "",
-    periods: "",
-    years: ""
-  };
-
-
   render() {
+    // console.log(state);
     return (
       <div className='Secret'>
         <div className='row'>
@@ -49,75 +62,90 @@ class Secret extends Component {
                 ? <div className='alert alert-danger'>{this.state.error}</div>
                 : <div>
 
-<Container fluid>
-        <Row>
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>Enter Inputs Here!</h1>
-            </Jumbotron>
-            { <form>
-              <Input
-                value={this.fvstate.presentValue}
-                onChange={this.handleInputChange}
-                name="presentValue"
-                placeholder="Present Value => 10000 (required)"
-              />
+                  <Container fluid>
+                          <Row>
+                            <Col size="md-6">
+                              <Jumbotron>
+                                <h1>Enter Inputs Here!</h1>
+                              </Jumbotron>
+                              <form onSubmit={this.handleSubmit}>
               
-              <Input
-                value={this.fvstate.rate}
-                onChange={this.handleInputChange}
-                name="rate"
-                placeholder="Rate => e.g. 0.05 for 5% (required)"
-              />
-              <Input
-                value={this.fvstate.numberOfPeriods}
-                onChange={this.handleInputChange}
-                name="numberOfPeriods"
-                placeholder="Period => e.g. Enter 12 for monthly | 1 for  annually  (required)"
-              />
-              <Input
-                value={this.fvstate.years}
-                onChange={this.handleInputChange}
-                name="years"
-                placeholder="Years => e.g. Enter 10 for 10 years  (required)"
-              />
-              <TextArea
-                value={this.fvstate.synopsis}
-                onChange={this.handleInputChange}
-                name="notes"
-                placeholder="Notes (Optional)"
-              />
-              { <FormBtn
-                disabled={!(this.state.author && this.state.title)}
-                onClick={this.handleFormSubmit}
-              >
-                Calculate Future Value
-              </FormBtn> }
-            </form> }
-          </Col>
-          <Col size="md-6 sm-12">
-            <Jumbotron>
-              <h1>Future Value Calculation</h1>
-            </Jumbotron>
-            {/* {this.state.books.length ? (
-              <List>
-                {this.state.books.map(book => (
-                  <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
-                      <strong>
-                        {book.title} by {book.author}
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => this.deleteBook(book._id)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )} */}
-          </Col>
-        </Row>
-</Container>
+
+              <div className='input-group mb-3'>
+                <div className="input-group-prepend">
+                  <span className="input-group-text"><Octicon icon={Key} /></span>
+                </div>
+                <input
+                  className='form-control'
+                  id='presentValue'
+                  type='number'
+                  name='presentValue'
+                  placeholder='10000'
+                  value={this.presentValue}
+                  onChange={this.handleInputChange}
+                />
+              </div>
+
+
+              <div className='input-group mb-3'>
+                <div className="input-group-prepend">
+                  <span className="input-group-text"><Octicon icon={Key} /></span>
+                </div>
+                <input
+                  className='form-control'
+                  id='rate'
+                  type='number' step="any"
+                  name='rate'
+                  placeholder='0.05 (for 5%)'
+                  value={this.rate}
+                  onChange={this.handleInputChange}
+                />
+              </div>
+
+              <div className='input-group mb-3'>
+                <div className="input-group-prepend">
+                  <span className="input-group-text"><Octicon icon={Key} /></span>
+                </div>
+                <input
+                  className='form-control'
+                  id='periods'
+                  type='number'
+                  name='periods'
+                  placeholder='12 (for 12 months)'
+                  value={this.periods}
+                  onChange={this.handleInputChange}
+                />
+              </div>
+
+              <div className='input-group mb-3'>
+                <div className="input-group-prepend">
+                  <span className="input-group-text"><Octicon icon={Key} /></span>
+                </div>
+                <input
+                  className='form-control'
+                  id='years'
+                  type='number'
+                  name='years'
+                  placeholder='10 (for 10 years)'
+                  value={this.years}
+                  onChange={this.handleInputChange}
+                />
+              </div>
+
+
+              <button className='btn btn-primary' type='submit'>Register Now!</button>
+           
+            </form>
+    
+                            </Col>
+                            <Col size="md-6 sm-12">
+                              <Jumbotron>
+                                <h1>Future Value Calculation</h1>
+                              </Jumbotron>
+                              place for table and chart
+                            </Col>
+                          </Row>
+                  </Container>
 
                   <p>It's never a question about how much something cost...</p>
                   {/* <p><em>{this.state.secrets[0].message}</em></p> */}
@@ -132,6 +160,7 @@ class Secret extends Component {
       </div>
     );
   }
+  
 }
 
 export default Secret;
