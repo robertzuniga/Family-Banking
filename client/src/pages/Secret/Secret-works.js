@@ -184,7 +184,7 @@ class Secret extends Component {
                         </div>
 
                         <button className="btn btn-primary" type="submit">
-                          Register Now!
+                          Calculate!
                         </button>
                       </form>
                     </Col>
