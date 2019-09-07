@@ -3,6 +3,10 @@ const controller = require('express').Router();
 var Airtable = require('airtable');
 var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appfX5sQa53WlKBDg');
 
+//////////////////////////////////////////////////////////////////////
+// Create => Post : Server (calculationController.js) to AirTable db 
+//////////////////////////////////////////////////////////////////////
+
 // Create Financial Calculator records
 controller.post('/', (req,res) => {
     //req.body contains present value / rate / periods / years
@@ -29,6 +33,10 @@ controller.post('/', (req,res) => {
 
 })
  
+//////////////////////////////////////////////////////////////////////
+// Read => Get : Server (calculationController.js) to AirTable db 
+//////////////////////////////////////////////////////////////////////
+
 // myRetrieve a Financial Calculator record
 controller.get('/', (req,res) => {
 
@@ -38,6 +46,11 @@ controller.get('/', (req,res) => {
   });
 
 })
+
+//////////////////////////////////////////////////////////////////////
+// Update => Put : Server (calculationController.js) to AirTable db 
+//////////////////////////////////////////////////////////////////////
+
 
 //my Update Financial Calculator records
 // make sure to use a put request
@@ -54,6 +67,10 @@ controller.get('/', (req,res) => {
 //   }
 //   console.log(record.get('User ID'));
 // });
+
+//////////////////////////////////////////////////////////////////////
+// Delete => Destroy : Server (calculationController.js) to AirTable db 
+//////////////////////////////////////////////////////////////////////
 
 // my Delete Record
 //make sure to use a delte request

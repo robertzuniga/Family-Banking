@@ -34,7 +34,12 @@ controller.post('/', (req,res) => {
   });
 
 })
- 
+
+//////////////////////////////////////////////////////////////////////
+// Read => Get : Server (calculationController.js) to AirTable db 
+//////////////////////////////////////////////////////////////////////
+
+
 // myRetrieve a Financial Calculator record
 
 // controller.get('/', (req,res) => {
@@ -45,6 +50,10 @@ controller.post('/', (req,res) => {
 //   });
 
 // })
+
+//////////////////////////////////////////////////////////////////////
+// Update => Put : Server (calculationController.js) to AirTable db 
+/////////////////////////////////////////////////////////////////////
 
 //my Update Financial Calculator records
 
@@ -61,6 +70,10 @@ controller.post('/', (req,res) => {
 //   }
 //   console.log(record.get('User ID'));
 // });
+
+//////////////////////////////////////////////////////////////////////
+// Delete => Destroy : Server (calculationController.js) to AirTable db 
+/////////////////////////////////////////////////////////////////////
 
 // my Delete Record
 // base('Financial Calculator').destroy('recvzk8qUIcZEXrHG', function(err, deletedRecord) {
