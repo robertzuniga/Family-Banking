@@ -3,29 +3,22 @@ const controller = require('express').Router();
 var Airtable = require('airtable');
 var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appfX5sQa53WlKBDg');
 
-
 // Create Financial Calculator records
-
-//////////////////////////////////////////////////////////////////////
-// Create => Post to Server (calculationController.js) to AirTable db 
-//////////////////////////////////////////////////////////////////////
-
-
 controller.post('/', (req,res) => {
     //req.body contains present value / rate / periods / years
 
- var user_id = req.body.user_id;
+  var user_id = req.body.user_id;
   var present_value = req.body.present_value;
   var rate=req.body.rate;
   var periods=req.body.periods;
   var years=req.body.years;
- 
-    base('Financial Calculator').create({
-      "user_id": user_id,
-      "present_value": present_value,
-      "rate": rate,
-      "periods": periods,
-      "years": years
+
+  base('Financial Calculator').create({
+    "user_id": user_id,
+    "present_value": present_value,
+    "rate": rate,
+    "periods": periods,
+    "years": years
   }, function(err, record) {
     if (err) {
       console.error("controller.post ==>",err);
@@ -37,15 +30,14 @@ controller.post('/', (req,res) => {
 })
  
 // myRetrieve a Financial Calculator record
+controller.get('/', (req,res) => {
 
-// controller.get('/', (req,res) => {
+  base('Financial Calculator').find('recvzk8qUIcZEXrHG', function(err, record) {
+    if (err) { console.error("myRetrieve ==> ",err); return; }
+    console.log('Retrieved', record.id);
+  });
 
-//   base('Financial Calculator').find('recvzk8qUIcZEXrHG', function(err, record) {
-//     if (err) { console.error("myRetrieve ==> ",err); return; }
-//     console.log('Retrieved', record.id);
-//   });
-
-// })
+})
 
 //my Update Financial Calculator records
 // make sure to use a put request
@@ -57,7 +49,7 @@ controller.post('/', (req,res) => {
 //   "Years": 5
 // }, function(err, record) {
 //   if (err) {
-//     console.error(err);
+//     console.error(err);git 
 //     return;
 //   }
 //   console.log(record.get('User ID'));
