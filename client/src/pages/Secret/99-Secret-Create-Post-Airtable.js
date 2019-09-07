@@ -19,11 +19,6 @@ class Secret extends Component {
     periods: "",
     years: ""
   };
-
-////////////////////////////////////////////
-// Create => Post to AirTable db 
-////////////////////////////////////////////
-
   handleInputChange = event => {
     const { name, value } = event.target;
 
@@ -31,6 +26,10 @@ class Secret extends Component {
       [name]: value
     });
   };
+
+//////////////////////////////////////////////////////////////////////
+// Create => Post to Server (calculationController.js) to AirTable db 
+//////////////////////////////////////////////////////////////////////
 
   handleSubmit = event => {
     event.preventDefault();

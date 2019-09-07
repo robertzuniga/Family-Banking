@@ -4,13 +4,12 @@ var Airtable = require('airtable');
 var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appfX5sQa53WlKBDg');
 
 
+
+//////////////////////////////////////////////////////////////////////
+// Create => Post from Server (calculationController.js) to AirTable db 
+//////////////////////////////////////////////////////////////////////
+
 // Create Financial Calculator records
-
-//////////////////////////////////////////////////////////////////////
-// Create => Post to Server (calculationController.js) to AirTable db 
-//////////////////////////////////////////////////////////////////////
-
-
 controller.post('/', (req,res) => {
     //req.body contains present value / rate / periods / years
 
